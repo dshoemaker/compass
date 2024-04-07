@@ -2,6 +2,7 @@ sh "git checkout lib/compass/core/generated_version.rb"
 require 'rake/testtask'
 require 'rubygems/package_task'
 require 'bundler/setup'
+require 'warning'
 
 namespace :test do
   Rake::TestTask.new(:integrations) do |t|

@@ -8,7 +8,7 @@ unless ENV['PKG']
   gem "compass-core", :path => "../core" unless defined?(CI)
   gem "compass-import-once", :path => "../import-once" unless defined?(CI)
   gem 'sass-globbing', "~> 1.1.1"
-  gem "cucumber", "~> 1.2.1"
+  gem "cucumber", "~> 2.0"
   gem "rspec", "~> 2.0.0"
   gem "compass-validator", "3.0.1"
   gem "css_parser", "~> 1.0.1"
@@ -20,6 +20,7 @@ unless ENV['PKG']
   gem 'json', '~> 1.7.7', :platforms => :ruby_18
   gem 'true', "~> 0.2.3"
   gem 'test-unit', '~> 3.0.9'
+  gem 'warning'
 
   # Warning be carful adding OS dependant gems above this line it will break the CI server please
   # place them below so they are excluded

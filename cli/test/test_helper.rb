@@ -3,6 +3,19 @@ $:.unshift(lib_dir) unless $:.include?(lib_dir)
 test_dir = File.dirname(__FILE__)
 $:.unshift(test_dir) unless $:.include?(test_dir)
 
+require 'warning'
+
+Warning.process do |w|
+  if w.include?("The $start value for random")
+    $stderr.puts(w)
+  elsif w.include?("keyword")
+    $stderr.puts(w)
+  elsif w.match?(/this is a warning/)
+    $stderr.puts(w)
+  else
+    nil
+  end
+end
 require 'compass'
 require 'test/unit'
 require 'true'

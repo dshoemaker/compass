@@ -42,7 +42,7 @@ Rake::TestTask.new :test do |t|
   test_files = FileList['test/**/*_test.rb']
   test_files.exclude('test/rails/*', 'test/haml/*')
   t.test_files = test_files
-  t.verbose = true
+  t.verbose = false
 end
 
 Rake::TestTask.new :units do |t|
@@ -51,7 +51,7 @@ Rake::TestTask.new :units do |t|
   test_files = FileList['test/units/**/*_test.rb']
   test_files.exclude('test/rails/*', 'test/haml/*')
   t.test_files = test_files
-  t.verbose = true
+  t.verbose = false
 end
 
 Rake::TestTask.new :integrations do |t|
@@ -60,7 +60,7 @@ Rake::TestTask.new :integrations do |t|
   test_files = FileList['test/integrations/**/*_test.rb']
   test_files.exclude('test/rails/*', 'test/haml/*')
   t.test_files = test_files
-  t.verbose = true
+  t.verbose = false
 end
 
 namespace :git do
@@ -86,7 +86,7 @@ begin
       test_files.exclude('test/rails/*', 'test/haml/*')
       rcov.pattern    = test_files
       rcov.output_dir = 'coverage'
-      rcov.verbose    = true
+      rcov.verbose    = false
       rcov.rcov_opts = %w{--exclude osx\/objc,gems\/,spec\/,features\/ --aggregate coverage.data}
       rcov.rcov_opts << %[-o "coverage" --sort coverage]
     end

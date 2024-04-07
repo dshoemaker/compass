@@ -23,3 +23,4 @@ gem 'json'
 gem 'css_parser', "1.0.1"
 gem 'rb-fsevent'
 gem 'builder'
+gem 'warning'
