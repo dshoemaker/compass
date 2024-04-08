@@ -36,6 +36,5 @@ unless ENV['PKG']
     gem 'guard-cucumber', :platforms => [:mri_20]
     # gem 'packager'
     gem 'colorize'
-    gem 'pry'
   end
 end
