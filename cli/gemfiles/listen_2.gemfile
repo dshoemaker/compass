@@ -5,6 +5,6 @@ eval File.read(main_gemfile), nil, main_gemfile
 gem 'sass', '~> 3.4.0'
 gem 'compass-core', path: '../../core'
 gem 'compass-import-once', path: '../../import-once'
-gem 'listen', '~> 2.7.1'
+gem 'listen'
 
 gemspec path: '../'
