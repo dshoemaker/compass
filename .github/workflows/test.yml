@@ -31,6 +31,9 @@ jobs:
           - core/Gemfile
           - cli/gemfiles/sass_3_3.gemfile
           - cli/gemfiles/listen_2.gemfile
+        component:
+          - cli
+          - core
         exclude:
           - gemfile: cli/gemfiles/sass_3_3.gemfile
             component: core
