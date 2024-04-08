@@ -21,11 +21,27 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        ruby-version: ['2.7', '3.0', '3.1', '3.2', '3.3']
-        gemfile: ['core/Gemfile', 'cli/gemfiles/sass_3_3.gemfile', 'cli/gemfiles/listen_2.gemfile']
+        ruby-version:
+          - '2.7'
+          - '3.0'
+          - '3.1'
+          - '3.2'
+          - '3.3'
+        gemfile:
+          - core/Gemfile
+          - cli/gemfiles/sass_3_3.gemfile
+          - cli/gemfiles/listen_2.gemfile
+        exclude:
+          - gemfile: cli/gemfiles/sass_3_3.gemfile
+            component: core
+          - gemfile: cli/gemfiles/listen_2.gemfile
+            component: core
+          - gemfile: core/Gemfile
+            component: cli
 
     env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
       BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}
+      CI_TEST: ${{ matrix.component }}
 
     steps:
     - uses: actions/checkout@v3
@@ -36,4 +52,4 @@ jobs:
         bundler-cache: true
 
     - name: Run tests
-      run: sh run_ci_tests.sh
+      run: cd $CI_TEST && bundle exec rake
