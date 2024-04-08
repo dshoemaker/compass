@@ -25,7 +25,7 @@ jobs:
         gemfile: ['core/Gemfile', 'cli/gemfiles/sass_3_3.gemfile', 'cli/gemfiles/listen_2.gemfile']
 
     env: # $BUNDLE_GEMFILE must be set at the job level, so it is set for all steps
-      BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}/Gemfile
+      BUNDLE_GEMFILE: ${{ github.workspace }}/${{ matrix.gemfile }}
 
     steps:
     - uses: actions/checkout@v3
